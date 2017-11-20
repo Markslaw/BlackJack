@@ -25,7 +25,7 @@ public class Deck {
         setDeck(deck);
     }
 
-
+// Learned how to shuffle an array on stack overflow//
     public void shuffle() {
         int length = deck.length;
         Random random = new Random();
