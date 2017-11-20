@@ -46,8 +46,10 @@ public class Test {
         }
 
 
-        Deck Deck = new Deck(BasicDeck);
-        Deck.display();
+        Deck bdeck = new Deck(BasicDeck);
+        bdeck.display();
+        bdeck.shuffle();
+        bdeck.display();
 
         ArrayList<Card> PlayerHand = new ArrayList<Card>();
         ArrayList<Card> DealerHand = new ArrayList<Card>();
@@ -61,8 +63,8 @@ public class Test {
 
 
 
-        JOptionPane.showMessageDialog(null, BasicDeck[44].toString());
-        JOptionPane.showMessageDialog(null, Deck.getCard(44));
+       // JOptionPane.showMessageDialog(null, BasicDeck[44].toString());
+      //  JOptionPane.showMessageDialog(null, Deck.getCard(44));
 
     }
 

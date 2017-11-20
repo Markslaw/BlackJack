@@ -8,20 +8,20 @@ import java.util.Random;
  * Created by mark on 19/11/2017.
  */
 public class Deck {
-    private static Card[] deck = new Card[52];
+    private Card[] deck = new Card[52];
 
     public Card[] getDeck() {return deck;}
 
-    public void setDeck(Card[] deck) {deck = deck;}
+    public void setDeck(Card[] deck) {this.deck = deck;}
 
 
-    public String toString() {
-        return "Deck{" +
-                "Deck=" + +
-                '}';
-    }
+   // public String toString() {
+   //     return "Deck{" +
+    //            "Deck=" + +
+    //            '}';
+    //}
 
-    public Deck(Card[] Deck) {
+    public Deck(Card[] deck) {
         setDeck(deck);
     }
 
@@ -41,11 +41,11 @@ public class Deck {
         deck[swap] = temp;
     }
 
-    public static void display() {
+    public void display() {
         JTextArea Roster = new JTextArea();
         for (int i = 0; i <deck.length; i++)
         {
-            Roster.append(deck[i].toString());
+            Roster.append(deck[i].toString()+"\n");
         }
         JOptionPane.showMessageDialog(null, Roster);
     }
