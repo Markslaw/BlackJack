@@ -8,11 +8,11 @@ import java.util.Random;
  * Created by mark on 19/11/2017.
  */
 public class Deck {
-    private static Card[] Deck = new Card[52];
+    private static Card[] deck = new Card[52];
 
-    public Card[] getDeck() {return Deck;}
+    public Card[] getDeck() {return deck;}
 
-    public void setDeck(Card[] deck) {Deck = deck;}
+    public void setDeck(Card[] deck) {deck = deck;}
 
 
     public String toString() {
@@ -22,12 +22,12 @@ public class Deck {
     }
 
     public Deck(Card[] Deck) {
-        Deck = Deck;
+        setDeck(deck);
     }
 
 
     public void shuffle() {
-        int length = Deck.length;
+        int length = deck.length;
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             int swap = i + random.nextInt(length - i);
@@ -36,27 +36,27 @@ public class Deck {
     }
 
     public void swapCards(int i, int swap){
-        Card temp = Deck[i];
-        Deck[i] = Deck[swap];
-        Deck[swap] = temp;
+        Card temp = deck[i];
+        deck[i] = deck[swap];
+        deck[swap] = temp;
     }
 
     public static void display() {
         JTextArea Roster = new JTextArea();
-        Roster.append("Deck:\n\n");
-        for (int i = 0; i <= 51; i++) {
-            Roster.append(Deck[i].toString() + "\n\n");
+        for (int i = 0; i <deck.length; i++)
+        {
+            Roster.append(deck[i].toString());
         }
         JOptionPane.showMessageDialog(null, Roster);
     }
 
     public Card getCard(int CardPosition){
-        return Deck[CardPosition];
+        return deck[CardPosition];
 
 
 
     }
-    public removeCard(int )
+
 
 
 }

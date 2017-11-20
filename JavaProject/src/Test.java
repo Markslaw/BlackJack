@@ -2,12 +2,14 @@
  * Created by mark on 19/11/2017.
  */
 import javax.swing.*;
+import java.util.ArrayList;
 
 /**
  * Created by mark on 19/11/2017.
  */
 public class Test {
     public static void main(String[] args) {
+      //  GUI test = new GUI();
         Card[] BasicDeck = new Card[52];
         int[] Values = {2,3,4,5,6,7,8,9,10,10,10,10,11};
         String[] ValuesAsSring = {"two","three","four","five","six","seven","eight","nine","ten","jack","quenn","king","ace"};
@@ -45,6 +47,18 @@ public class Test {
 
 
         Deck Deck = new Deck(BasicDeck);
+        Deck.display();
+
+        ArrayList<Card> PlayerHand = new ArrayList<Card>();
+        ArrayList<Card> DealerHand = new ArrayList<Card>();
+
+        Player user = new Player(PlayerHand);
+        Player dealer = new Player(DealerHand);
+
+        user.getHand();
+        dealer.getHand();
+
+
 
 
         JOptionPane.showMessageDialog(null, BasicDeck[44].toString());
