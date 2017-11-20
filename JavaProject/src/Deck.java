@@ -2,7 +2,6 @@
  * Created by mark on 19/11/2017.
  */
 import javax.swing.*;
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -50,6 +49,14 @@ public class Deck {
         }
         JOptionPane.showMessageDialog(null, Roster);
     }
+
+    public Card getCard(int CardPosition){
+        return Deck[CardPosition];
+
+
+
+    }
+    public removeCard(int )
 
 
 }

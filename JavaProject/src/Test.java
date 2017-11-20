@@ -44,11 +44,11 @@ public class Test {
         }
 
 
-
         Deck Deck = new Deck(BasicDeck);
-        Deck.display();
-        Deck.shuffle();
-        Deck.display();
+
+
+        JOptionPane.showMessageDialog(null, BasicDeck[44].toString());
+        JOptionPane.showMessageDialog(null, Deck.getCard(44));
 
     }
 
