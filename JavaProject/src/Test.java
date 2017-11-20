@@ -57,7 +57,12 @@ public class Test {
         Player user = new Player(PlayerHand);
         Player dealer = new Player(DealerHand);
 
-        user.getHand();
+int Counter = 0;
+        user.recieveCard(Deck.getCard(Counter));
+        Counter++;
+        user.recieveCard(Deck.getCard(Counter));
+
+        user.displayHand();
         dealer.getHand();
 
 

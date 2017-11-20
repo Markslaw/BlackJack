@@ -8,7 +8,7 @@ import java.util.Random;
  * Created by mark on 19/11/2017.
  */
 public class Deck {
-    private Card[] deck = new Card[52];
+    private static Card[] deck = new Card[52];
 
     public Card[] getDeck() {return deck;}
 
@@ -50,12 +50,13 @@ public class Deck {
         JOptionPane.showMessageDialog(null, Roster);
     }
 
-    public Card getCard(int CardPosition){
+    public static Card getCard(int CardPosition){
         return deck[CardPosition];
-
-
-
     }
+  //  public removeCard(int CardDealt){
+  //      deck[CardDealt]
+
+  //  }
 
 
 

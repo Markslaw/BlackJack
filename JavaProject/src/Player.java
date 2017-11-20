@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Player {
@@ -14,6 +15,22 @@ public class Player {
 
     public Player(ArrayList<Card> Hand){
         setHand(Hand);
+    }
+
+        public void displayHand() {
+            JTextArea HandText = new JTextArea();
+            for (int i = 0; i <Hand.size(); i++)
+            {
+                HandText.append(Hand.get(i).toString()+"\n");
+            }
+            JOptionPane.showMessageDialog(null, HandText);
+        }
+
+
+    public void recieveCard(Card Newcard){
+        Hand.add(Newcard);
+
+
     }
 
 
