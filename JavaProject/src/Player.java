@@ -15,6 +15,7 @@ public class Player {
 
     public Player(ArrayList<Card> Hand){
         setHand(Hand);
+        setScore(0);
     }
 
         public void displayHand() {
@@ -32,6 +33,18 @@ public class Player {
 
 
     }
+
+    public int getHandValue(){
+        int totalHandValue = 0;
+        for(int i = 0; i< Hand.size(); i++) {
+            totalHandValue += Hand.get(i).getValue();
+        }
+        return totalHandValue;
+    }
+
+
+
+
 
 
 

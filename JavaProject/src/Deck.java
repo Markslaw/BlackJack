@@ -21,9 +21,7 @@ public class Deck {
     //            '}';
     //}
 
-    public Deck(Card[] deck) {
-        setDeck(deck);
-    }
+
 
 // Learned how to shuffle an array on stack overflow//
     public void shuffle() {
@@ -57,7 +55,40 @@ public class Deck {
   //      deck[CardDealt]
 
   //  }
+   public Deck() {
+       int[] Values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11};
+       String[] ValuesAsSring = {"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace"};
+       int y = 0;
+       int SuitCounter = 0;
 
+       for (int i = 0; i <= 51; i++) {
+           deck[i] = new Card();
+           if (SuitCounter < 13) {
+               deck[i].setSuit("Hearts");
+               deck[i].setValue(Values[y]);
+               deck[i].setValueAsString(ValuesAsSring[y]);
+           }
+           if (SuitCounter >= 13 && SuitCounter < 26) {
+               deck[i].setSuit("Diamonds");
+               deck[i].setValue(Values[y]);
+               deck[i].setValueAsString(ValuesAsSring[y]);
+           }
+           if (SuitCounter >= 26 && SuitCounter < 39) {
+               deck[i].setSuit("Clubs");
+               deck[i].setValue(Values[y]);
+               deck[i].setValueAsString(ValuesAsSring[y]);
+           }
+           if (SuitCounter >= 39 && SuitCounter < 52) {
+               deck[i].setSuit("Spades");
+               deck[i].setValue(Values[y]);
+               deck[i].setValueAsString(ValuesAsSring[y]);
+           }
+           SuitCounter++;
+           y++;
+           if (i == 12 || i == 25 || i == 38)
+               y = 0;
+       }
+   }
 
 
 }
