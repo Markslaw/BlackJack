@@ -9,10 +9,12 @@ import java.util.ArrayList;
  */
 public class Test {
     public static void main(String[] args) {
-      //  GUI test = new GUI();
+       GUI test = new GUI();
+
+
         Card[] BasicDeck = new Card[52];
         int[] Values = {2,3,4,5,6,7,8,9,10,10,10,10,11};
-        String[] ValuesAsSring = {"two","three","four","five","six","seven","eight","nine","ten","jack","quenn","king","ace"};
+        String[] ValuesAsSring = {"two","three","four","five","six","seven","eight","nine","ten","jack","queen","king","ace"};
         int y = 0;
         int SuitCounter=0;
 
@@ -57,13 +59,14 @@ public class Test {
         Player user = new Player(PlayerHand);
         Player dealer = new Player(DealerHand);
 
-int Counter = 0;
+        int Counter = 0;
         user.recieveCard(Deck.getCard(Counter));
         Counter++;
+        dealer.recieveCard(Deck.getCard(Counter));
+        Counter++;
         user.recieveCard(Deck.getCard(Counter));
-
         user.displayHand();
-        dealer.getHand();
+        dealer.displayHand();
 
 
 
