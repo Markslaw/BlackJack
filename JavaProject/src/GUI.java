@@ -8,6 +8,9 @@ import java.awt.event.ActionListener;
 
 
         JMenu fileMenu;
+        JButton hitbutton = new JButton("HIT");
+        JButton dealbutton = new JButton();
+        JButton staybutton = new JButton();
 
        // creating a JFrame called frame
         private JFrame frame = new JFrame("Blackjack");
@@ -32,9 +35,9 @@ import java.awt.event.ActionListener;
            setJMenuBar(menuBar);
            menuBar.add(fileMenu);
 
-           frame.getContentPane().add(contentPane);
            frame.add(menuBar);
            frame.setVisible(true);
+
 
 
        }
