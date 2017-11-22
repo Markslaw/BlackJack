@@ -4,43 +4,47 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-    public class GUI extends JFrame{
+    public class GUI extends JFrame {
 
 
         JMenu fileMenu;
         JButton hitbutton = new JButton("HIT");
-        JButton dealbutton = new JButton();
-        JButton staybutton = new JButton();
+        JButton staybutton = new JButton("Stay");
 
-       // creating a JFrame called frame
+        // creating a JFrame called frame
         private JFrame frame = new JFrame("Blackjack");
+        JPanel panel = new JPanel();
 
 
-       public GUI()
+        public GUI()
 
-       {
-           frame.setLocation(350, 200);
-           frame.setSize(1000, 800);
-           frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-           GridLayout layout = new GridLayout(0,2);
+        {
+            GridLayout layout = new GridLayout(0, 2);
+            frame.setLocation(350, 200);
+            frame.setSize(1000, 800);
+            frame.setVisible(true);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.getContentPane().setBackground(Color.green);
+            //frame.add(this);
+            frame.add(panel);
+            panel.add(hitbutton);
+            panel.add(staybutton);
+            panel.setSize(200,200);
 
-           Container contentPane = new Container();
-           contentPane.setLayout(layout);
-           contentPane.setBackground(Color.GREEN);
-
-
-           FileMenu();
-
-           JMenuBar menuBar = new JMenuBar();
-           setJMenuBar(menuBar);
-           menuBar.add(fileMenu);
-
-           frame.add(menuBar);
-           frame.setVisible(true);
+            Container contentPane = new Container();
+            contentPane.setLayout(layout);
+            //contentPane.setBackground(Color.GREEN);
 
 
+        }
 
-       }
+        //abstract method
+        public void paint(Graphics g) {
+            ImageIcon table = new ImageIcon("Images//table.jpg");
+
+            g.drawImage(table.getImage(), 0, 0, null);
+        }
+
 
 
 
@@ -59,6 +63,7 @@ import java.awt.event.ActionListener;
         //    item.addActionListener(this);
             fileMenu.add(item);
         }
+
     }
 
 
