@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by mark on 19/11/2017.
  */
 public class Test {
- public static void main(String[] args) {
+   public static void main(String[] args) {
   new GUI();
   int pscore = 0;
   int dscore = 0;
@@ -20,7 +20,7 @@ public class Test {
   bdeck.display();
   JOptionPane.showMessageDialog(null,Deck.getCard(44));
 
-  do {
+  do{
 
    bdeck.shuffle();
    bdeck.display();
@@ -39,19 +39,38 @@ public class Test {
     pscore++;
    }
 
-   if (user.getHandValue() < 21) {
+   if(user.getHandValue() < 21) {
     while (JOptionPane.showConfirmDialog(null, "Would you like to hit") == JOptionPane.YES_OPTION) {
-     user.recieveCard(Deck.getCard(Counter));
-     Counter++;
-     user.displayHand();
+        user.recieveCard(Deck.getCard(Counter));
+        Counter++;
+        user.displayHand();
+        // else{
+       // dealer.recieveCard(Deck.getCard(Counter));
+        //counter++;
+       // dealer.recieveCard(Deck.getCard(Counter));
+        //counter++;
+        //if(dealer.getHandValue()< 17)
+        //counter++
+        //dealer.recieveCard(Deck.getCard(Counter));
+        //if(dealer.getHandValue>21)
+        //pscore ++
+        //if(dealer.getHandValue>17&&dealer.getHandValue<21&& dealer.getHandValue>player.getHandValue)
+        //dscore++
+        //else
+        //pscore++
+        //
+   // }
      if (user.getHandValue() > 21) {
       JOptionPane.showMessageDialog(null, "you have bust");
       dscore++;
+
+
+
       PlayerHand.clear();
       DealerHand.clear();
      }
      JOptionPane.showMessageDialog(null, dscore);
-     JOptionPane.showMessageDialog(null,pscore);
+     JOptionPane.showMessageDialog(null, pscore);
     }
 
    }
