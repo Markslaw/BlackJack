@@ -9,18 +9,18 @@ import java.util.ArrayList;
  */
 public class Test {
  public static void main(String[] args) {
-     new GUI();
+  new GUI();
   int pscore = 0;
   int dscore = 0;
   ArrayList<Card> PlayerHand = new ArrayList<Card>();
   ArrayList<Card> DealerHand = new ArrayList<Card>();
   Player user = new Player(PlayerHand);
   Player dealer = new Player(DealerHand);
+  Deck bdeck = new Deck();
+  bdeck.display();
 
+  do {
 
-  while(pscore < 2 || dscore < 2) {
-   Deck bdeck = new Deck();
-   bdeck.display();
    bdeck.shuffle();
    bdeck.display();
 
@@ -40,34 +40,26 @@ public class Test {
 
    if (user.getHandValue() < 21) {
     while (JOptionPane.showConfirmDialog(null, "Would you like to hit") == JOptionPane.YES_OPTION) {
-
      user.recieveCard(Deck.getCard(Counter));
      Counter++;
      user.displayHand();
-     if(user.getHandValue()>21){
-      JOptionPane.showMessageDialog(null,"you have bust");
+     if (user.getHandValue() > 21) {
+      JOptionPane.showMessageDialog(null, "you have bust");
       dscore++;
+      PlayerHand.clear();
+      DealerHand.clear();
      }
-
-
+     JOptionPane.showMessageDialog(null, dscore);
     }
+
    }
-  }
 
 
+   // JOptionPane.showMessageDialog(null, BasicDeck[44].toString());
+   //  JOptionPane.showMessageDialog(null, Deck.getCard(44));
 
+  } while (JOptionPane.showConfirmDialog(null, "Would you like to play again") == JOptionPane.YES_OPTION);
 
-
-
-
-
-
-
-  // JOptionPane.showMessageDialog(null, BasicDeck[44].toString());
-  //  JOptionPane.showMessageDialog(null, Deck.getCard(44));
 
  }
-
-
-
 }

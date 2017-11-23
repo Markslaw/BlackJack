@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 /**
  * Created by mark on 19/11/2017.
  */
@@ -5,6 +7,7 @@ public class Card {
     private int value;
     private String Suit;
     private String ValueAsString;
+    private ImageIcon Image;
 
     public int getValue() {return value;}
     public void setValue(int value) {this.value = value;}

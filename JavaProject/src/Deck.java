@@ -92,6 +92,7 @@ public class Deck {
             if (i == 12 || i == 25 || i == 38)
                 y = 0;
         }
+
     }
 
 
