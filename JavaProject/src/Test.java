@@ -18,6 +18,7 @@ public class Test {
   Player dealer = new Player(DealerHand);
   Deck bdeck = new Deck();
   bdeck.display();
+  JOptionPane.showMessageDialog(null,Deck.getCard(44));
 
   do {
 
@@ -50,13 +51,14 @@ public class Test {
       DealerHand.clear();
      }
      JOptionPane.showMessageDialog(null, dscore);
+     JOptionPane.showMessageDialog(null,pscore);
     }
 
    }
 
 
    // JOptionPane.showMessageDialog(null, BasicDeck[44].toString());
-   //  JOptionPane.showMessageDialog(null, Deck.getCard(44));
+     JOptionPane.showMessageDialog(null, Deck.getCard(44));
 
   } while (JOptionPane.showConfirmDialog(null, "Would you like to play again") == JOptionPane.YES_OPTION);
 
