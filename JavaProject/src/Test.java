@@ -9,7 +9,6 @@ import java.util.ArrayList;
  */
 public class Test {
    public static void main(String[] args) {
-  new GUI();
   int pscore = 0;
   int dscore = 0;
   ArrayList<Card> PlayerHand = new ArrayList<Card>();
@@ -19,7 +18,7 @@ public class Test {
   Deck bdeck = new Deck();
   bdeck.display();
   JOptionPane.showMessageDialog(null,Deck.getCard(44));
-
+       new GUI();
   do{
 
    bdeck.shuffle();
