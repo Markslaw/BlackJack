@@ -68,11 +68,11 @@ import java.awt.event.ActionListener;
             buttonholder.add(dealbutton);
             frame.add(buttonholder);
             Deck bDeck = new Deck();
-            bDeck.shuffle();
-            
-            for(int i = 0; i < bDeck.length; i++)
+            bDeck.shuffle() = new Deck;
+
+            for(int i = 0; i < shuffled.length; i++)
             {
-                shuffled[i] = bDeck.shuffle[];
+                shuffled[i] = bDeck.shuffle();
             }
 
         }
