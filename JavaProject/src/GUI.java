@@ -84,7 +84,6 @@ import java.awt.event.ActionListener;
                             pcard1.setIcon(plycard1);
                             playervalue += shuffled[k].getValue();
                             playerholder.add(pcard1);
-                            i++;
                             k++;
                         }
 
@@ -95,7 +94,6 @@ import java.awt.event.ActionListener;
                             playerholder.add(pcard2);
                             playerholder.revalidate();
                             playerholder.repaint();
-                            i++;
                             k++;
                         }
 
@@ -107,7 +105,6 @@ import java.awt.event.ActionListener;
                             playerholder.repaint();
                             playerholder.add(pcard3);
                             k++;
-                            i++;
                         }
 
                         if (i == 3) {
@@ -132,6 +129,7 @@ import java.awt.event.ActionListener;
                         }
                         if (i > 4)
                             JOptionPane.showMessageDialog(null, "hello darkness my old friend");
+                        i++;
                     }
                 }
 
