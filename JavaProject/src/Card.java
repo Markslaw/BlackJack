@@ -14,6 +14,7 @@ public class Card {
     public String getSuit() {return Suit;}
     public void setImage(ImageIcon image) { Image = image;}
 
+
     public void setSuit(String suit) {Suit = suit;}
     public String getValueAsString() {return ValueAsString;}
     public void setValueAsString(String valueAsString) {ValueAsString = valueAsString;}
