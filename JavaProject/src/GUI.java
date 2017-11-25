@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-    public class GUI extends JFrame implements ActionListener {
+    public class GUI extends JFrame  {
 
 
         JMenu fileMenu;
@@ -54,67 +54,7 @@ import java.awt.event.ActionListener;
             hitbutton = new JButton("Hit");
             staybutton = new JButton("Stay");
             dealbutton = new JButton("Deal");
-            dealbutton.addActionListener(new ActionListener() {
-                                             @Override
-                                             public void actionPerformed(ActionEvent e) {
-                                                 if (e.getSource() == hitbutton) {
-
-                                                     if (i == 0) {
-                                                         plycard1 = new ImageIcon(shuffled[k].getImage());
-                                                         pcard1.setIcon(plycard1);
-                                                         playervalue += shuffled[k].getValue();
-                                                         k++;
-                                                         playerholder.add(pcard1);
-
-                                                     }
-
-                                                     if (i == 1) {
-                                                         plycard2 = new ImageIcon(shuffled[k].getImage());
-                                                         pcard2.setIcon(plycard2);
-                                                         playervalue += shuffled[k].getValue();
-                                                         playerholder.add(pcard2);
-                                                         playerholder.revalidate();
-                                                         playerholder.repaint();
-                                                         k++;
-                                                     }
-
-                                                     if (i == 2) {
-                                                         plycard3 = new ImageIcon(shuffled[k].getImage());
-                                                         pcard3.setIcon(plycard3);
-                                                         playervalue += shuffled[k].getValue();
-                                                         playerholder.add(pcard3);
-                                                         playerholder.revalidate();
-                                                         playerholder.repaint();
-                                                         k++;
-                                                     }
-
-                                                     if (i == 3) {
-                                                         plycard4 = new ImageIcon(shuffled[k].getImage());
-                                                         pcard4.setIcon(plycard4);
-                                                         playervalue += shuffled[k].getValue();
-                                                         playerholder.add(pcard4);
-                                                         playerholder.revalidate();
-                                                         playerholder.repaint();
-                                                         k++;
-                                                     }
-
-                                                     if (i == 4) {
-                                                         plycard5 = new ImageIcon(shuffled[k].getImage());
-                                                         pcard5.setIcon(plycard5);
-                                                         playervalue += shuffled[k].getValue();
-                                                         playerholder.add(pcard5);
-                                                         playerholder.revalidate();
-                                                         playerholder.repaint();
-                                                         k++;
-
-                                                     }
-                                                     if(i>4)
-                                                         JOptionPane.showMessageDialog(null,"hello darkness my old friend");
-                                                 }
-                                             }
-
-
-                                         });
+            buttonholder.add(dealbutton);
             playerholder.add(playersHand);
             playerholder.add(pcard1);
             playerholder.add(pcard2);
@@ -127,77 +67,140 @@ import java.awt.event.ActionListener;
             frame.add(dealerholder);
             buttonholder.add(hitbutton);
             buttonholder.add(staybutton);
-            buttonholder.add(dealbutton);
             frame.add(buttonholder);
             Deck bDeck = new Deck();
             bDeck.shuffle();
 
+
             for (int i = 0; i < shuffled.length; i++) {
                 shuffled[i] = bDeck.getCard(i);
             }
+            hitbutton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (e.getSource() == hitbutton) {
+                        if (i == 0) {
+                            plycard1 = new ImageIcon(shuffled[k].getImage());
+                            pcard1.setIcon(plycard1);
+                            playervalue += shuffled[k].getValue();
+                            playerholder.add(pcard1);
+                            i++;
+                            k++;
+                        }
+
+                        if (i == 1) {
+                            plycard2 = new ImageIcon(shuffled[k].getImage());
+                            pcard2.setIcon(plycard2);
+                            playervalue += shuffled[k].getValue();
+                            playerholder.add(pcard2);
+                            playerholder.revalidate();
+                            playerholder.repaint();
+                            i++;
+                            k++;
+                        }
+
+                        if (i == 2) {
+                            plycard3 = new ImageIcon(shuffled[k].getImage());
+                            pcard3.setIcon(plycard3);
+                            playervalue += shuffled[k].getValue();
+                            playerholder.revalidate();
+                            playerholder.repaint();
+                            playerholder.add(pcard3);
+                            k++;
+                            i++;
+                        }
+
+                        if (i == 3) {
+                            plycard4 = new ImageIcon(shuffled[k].getImage());
+                            pcard4.setIcon(plycard4);
+                            playervalue += shuffled[k].getValue();
+                            playerholder.add(pcard4);
+                            playerholder.revalidate();
+                            playerholder.repaint();
+                            k++;
+                        }
+
+                        if (i == 4) {
+                            plycard5 = new ImageIcon(shuffled[k].getImage());
+                            pcard5.setIcon(plycard5);
+                            playervalue += shuffled[k].getValue();
+                            playerholder.add(pcard5);
+                            playerholder.revalidate();
+                            playerholder.repaint();
+                            k++;
+
+                        }
+                        if (i > 4)
+                            JOptionPane.showMessageDialog(null, "hello darkness my old friend");
+                    }
+                }
+
+
+
+            });
         }
 
-            public void actionPerformed(ActionEvent e) {
-
-            if (e.getSource() == hitbutton){
-
-                if(i == 0){
-                    plycard1 = new ImageIcon(shuffled[k].getImage());
-                    pcard1.setIcon(plycard1);
-                    playervalue += shuffled[k].getValue();
-                    k++;
-                    playerholder.add(pcard1);
-
-                }
-
-                if(i==1){
-                    plycard2 = new ImageIcon(shuffled[k].getImage());
-                    pcard2.setIcon(plycard2);
-                    playervalue += shuffled[k].getValue();
-                    playerholder.add(pcard2);
-                    playerholder.revalidate();
-                    playerholder.repaint();
-                    k++;
-                }
-
-                if(i==2){
-                    plycard3 = new ImageIcon(shuffled[k].getImage());
-                    pcard3.setIcon(plycard3);
-                    playervalue += shuffled[k].getValue();
-                    playerholder.add(pcard3);
-                    playerholder.revalidate();
-                    playerholder.repaint();
-                    k++;
-                }
-
-                if(i==3){
-                    plycard4 = new ImageIcon(shuffled[k].getImage());
-                    pcard4.setIcon(plycard4);
-                    playervalue += shuffled[k].getValue();
-                    playerholder.add(pcard4);
-                    playerholder.revalidate();
-                    playerholder.repaint();
-                    k++;
-                }
-
-                if(i==4){
-                    plycard5 = new ImageIcon(shuffled[k].getImage());
-                    pcard5.setIcon(plycard5);
-                    playervalue += shuffled[k].getValue();
-                    playerholder.add(pcard5);
-                    playerholder.revalidate();
-                    playerholder.repaint();
-                    k++;
-
-                }
-                if(i>4){
-                    JOptionPane.showMessageDialog(null,"max no of cards");
-                }
-            }
-
-
-
-        }
+//            public void actionPerformed(ActionEvent e) {
+//
+//            if (e.getSource() == hitbutton){
+//
+//                if(i == 0){
+//                    plycard1 = new ImageIcon(shuffled[k].getImage());
+//                    pcard1.setIcon(plycard1);
+//                    playervalue += shuffled[k].getValue();
+//                    k++;
+//                    playerholder.add(pcard1);
+//
+//                }
+//
+//                if(i==1){
+//                    plycard2 = new ImageIcon(shuffled[k].getImage());
+//                    pcard2.setIcon(plycard2);
+//                    playervalue += shuffled[k].getValue();
+//                    playerholder.add(pcard2);
+//                    playerholder.revalidate();
+//                    playerholder.repaint();
+//                    k++;
+//                }
+//
+//                if(i==2){
+//                    plycard3 = new ImageIcon(shuffled[k].getImage());
+//                    pcard3.setIcon(plycard3);
+//                    playervalue += shuffled[k].getValue();
+//                    playerholder.add(pcard3);
+//                    playerholder.revalidate();
+//                    playerholder.repaint();
+//                    k++;
+//                }
+//
+//                if(i==3){
+//                    plycard4 = new ImageIcon(shuffled[k].getImage());
+//                    pcard4.setIcon(plycard4);
+//                    playervalue += shuffled[k].getValue();
+//                    playerholder.add(pcard4);
+//                    playerholder.revalidate();
+//                    playerholder.repaint();
+//                    k++;
+//                }
+//
+//                if(i==4){
+//                    plycard5 = new ImageIcon(shuffled[k].getImage());
+//                    pcard5.setIcon(plycard5);
+//                    playervalue += shuffled[k].getValue();
+//                    playerholder.add(pcard5);
+//                    playerholder.revalidate();
+//                    playerholder.repaint();
+//                    k++;
+//
+//                }
+//                if(i>4){
+//                    JOptionPane.showMessageDialog(null,"max no of cards");
+//                }
+//            }
+//
+//
+//
+//        }
 
 
 
