@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-    public class GUI extends JFrame  {
+    public class GUI extends JFrame {
 
 
         JMenu fileMenu;
@@ -16,8 +16,9 @@ import java.awt.event.ActionListener;
         private JFrame frame = new JFrame("Blackjack");
         ImageIcon backofcard, plycard1, plycard2, plycard3, plycard4, plycard5, dlrcard1, dlrcard2, dlrcard3, dlrcard4, dlrcard5;
         int playervalue = 0, dealervalue = 0;
-        private Card [] shuffled = new Card[52];
-        private int k=0, i=0;
+        private Card[] freshdeck = new Card[52];
+        private int k = 0, i = 0;
+        private int playerscore = 0, dealerscore = 0;
 
 
         public GUI()
@@ -68,39 +69,42 @@ import java.awt.event.ActionListener;
             buttonholder.add(hitbutton);
             buttonholder.add(staybutton);
             frame.add(buttonholder);
+
+
             Deck bDeck = new Deck();
             bDeck.shuffle();
 
 
-            for (int i = 0; i < shuffled.length; i++) {
-                shuffled[i] = bDeck.getCard(i);
+            for (int i = 0; i < freshdeck.length; i++) {
+                freshdeck[i] = bDeck.getCard(i);
             }
             hitbutton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     if (e.getSource() == hitbutton) {
                         if (i == 0) {
-                            plycard1 = new ImageIcon(shuffled[k].getImage());
+                            plycard1 = new ImageIcon(freshdeck[k].getImage());
                             pcard1.setIcon(plycard1);
-                            playervalue += shuffled[k].getValue();
+                            playervalue += freshdeck[k].getValue();
                             playerholder.add(pcard1);
                             k++;
                         }
 
                         if (i == 1) {
-                            plycard2 = new ImageIcon(shuffled[k].getImage());
+                            plycard2 = new ImageIcon(freshdeck[k].getImage());
                             pcard2.setIcon(plycard2);
-                            playervalue += shuffled[k].getValue();
+                            playervalue += freshdeck[k].getValue();
                             playerholder.add(pcard2);
                             playerholder.revalidate();
                             playerholder.repaint();
                             k++;
+
                         }
 
                         if (i == 2) {
-                            plycard3 = new ImageIcon(shuffled[k].getImage());
+                            plycard3 = new ImageIcon(freshdeck[k].getImage());
                             pcard3.setIcon(plycard3);
-                            playervalue += shuffled[k].getValue();
+                            playervalue += freshdeck[k].getValue();
                             playerholder.revalidate();
                             playerholder.repaint();
                             playerholder.add(pcard3);
@@ -108,9 +112,9 @@ import java.awt.event.ActionListener;
                         }
 
                         if (i == 3) {
-                            plycard4 = new ImageIcon(shuffled[k].getImage());
+                            plycard4 = new ImageIcon(freshdeck[k].getImage());
                             pcard4.setIcon(plycard4);
-                            playervalue += shuffled[k].getValue();
+                            playervalue += freshdeck[k].getValue();
                             playerholder.add(pcard4);
                             playerholder.revalidate();
                             playerholder.repaint();
@@ -118,25 +122,112 @@ import java.awt.event.ActionListener;
                         }
 
                         if (i == 4) {
-                            plycard5 = new ImageIcon(shuffled[k].getImage());
+                            plycard5 = new ImageIcon(freshdeck[k].getImage());
                             pcard5.setIcon(plycard5);
-                            playervalue += shuffled[k].getValue();
+                            playervalue += freshdeck[k].getValue();
                             playerholder.add(pcard5);
                             playerholder.revalidate();
                             playerholder.repaint();
                             k++;
 
                         }
-                        if (i > 4)
-                            JOptionPane.showMessageDialog(null, "hello darkness my old friend");
+                        if (i > 4) {
+                            JOptionPane.showMessageDialog(null, "You have just got a 5 card trick");
+                            playerscore++;
+
+                        }
                         i++;
                     }
+
                 }
 
 
+            });
+
+            dealbutton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (e.getSource() == dealbutton) {
+                        playervalue = 0;
+                        dealervalue = 0;
+                        playerholder.remove(pcard1);
+                        playerholder.remove(pcard2);
+                        playerholder.remove(pcard3);
+                        playerholder.remove(pcard4);
+                        playerholder.remove(pcard5);
+                        pcard1.setIcon(backofcard);
+                        pcard2.setIcon(backofcard);
+                        playerholder.add(pcard1);
+                        playerholder.add(pcard2);
+                        playerholder.revalidate();
+                        playerholder.repaint();
+
+                        dealerholder.remove(dcard1);
+                        dealerholder.remove(dcard2);
+                        dealerholder.remove(dcard3);
+                        dealerholder.remove(dcard4);
+                        dealerholder.remove(dcard5);
+                        dcard1.setIcon(backofcard);
+                        dcard2.setIcon(backofcard);
+                        dealerholder.add(dcard1);
+                        dealerholder.add(dcard2);
+
+                        if (k > 50) {
+                            Deck bdeck = new Deck();
+                            bdeck.shuffle();
+                            for (int x = 0; x < freshdeck.length; x++) {
+                                freshdeck[x] = bdeck.getCard(x);
+                            }
+
+                            k = 0;
+                        }
+                    }
+
+
+                }
+
 
             });
-        }
+
+            staybutton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (e.getSource() == staybutton) {
+                        if (k > 46) {
+                            Deck bdeck = new Deck();
+                            bdeck.shuffle();
+                            for(int x = 0; x < freshdeck.length; x++){
+                                freshdeck[x] = bdeck.getCard(x);
+                            }
+                            k=0;
+                        }
+
+                        dealerholder.remove(dcard1);
+                        dealerholder.remove(dcard2);
+                        dlrcard1 = new ImageIcon(freshdeck[k].getImage());
+                        dcard1.setIcon(dlrcard1);
+                        dealervalue += freshdeck[k].getValue();
+                        dealerholder.add(dcard1);
+                        k++;
+
+                        dlrcard2 = new ImageIcon(freshdeck[k].getImage());
+                        dcard2.setIcon(dlrcard2);
+                        dealervalue += freshdeck[k].getValue();
+                        dealerholder.add(dcard2);
+                        k++;
+                        dealerholder.revalidate();
+                        dealerholder.repaint();
+
+
+                    }
+                }
+            });
+
+
+
+
+
+
 
 //            public void actionPerformed(ActionEvent e) {
 //
@@ -201,8 +292,8 @@ import java.awt.event.ActionListener;
 //        }
 
 
-
-    }   // frame.setLayout(layout);
+        }
+    }// frame.setLayout(layout);
             //frame.getContentPane().setBackground(Color.green);
             //frame.add(this)
 //            frame.add(panel);
