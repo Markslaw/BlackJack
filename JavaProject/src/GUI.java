@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
         ImageIcon backofcard, plycard1, plycard2, plycard3, plycard4, plycard5, dlrcard1, dlrcard2, dlrcard3, dlrcard4, dlrcard5;
         int playervalue = 0, dealervalue = 0;
         private Card[] freshdeck = new Card[52];
-        private int k = 0, i = 0;
+        private int k = 0, i = 0, d = 0;
         private int playerscore = 0, dealerscore = 0;
 
 
@@ -27,8 +27,8 @@ import java.awt.event.ActionListener;
             // JLabel label = new JLabel(new ImageIcon("Images//table.jpg"));
             //frame.add(new ImageIcon("Images//table.jpg"));
 
-            frame.setLocation(200, 200);
-            frame.setSize(1400, 1100);
+            frame.setLocation(100, 0);
+            frame.setSize(1400, 1000);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true);
             frame.setLayout(new GridLayout(3, 1));
@@ -55,6 +55,7 @@ import java.awt.event.ActionListener;
             hitbutton = new JButton("Hit");
             staybutton = new JButton("Stay");
             dealbutton = new JButton("Deal");
+            hitbutton.setSize(100,100);
             buttonholder.add(dealbutton);
             playerholder.add(playersHand);
             playerholder.add(pcard1);
@@ -119,6 +120,7 @@ import java.awt.event.ActionListener;
                             playerholder.revalidate();
                             playerholder.repaint();
                             k++;
+                          // testing purposes to see if playervalue was actually giving correct values JOptionPane.showMessageDialog(null,playervalue);
                         }
 
                         if (i == 4) {
@@ -196,12 +198,11 @@ import java.awt.event.ActionListener;
                         if (k > 46) {
                             Deck bdeck = new Deck();
                             bdeck.shuffle();
-                            for(int x = 0; x < freshdeck.length; x++){
+                            for (int x = 0; x < freshdeck.length; x++) {
                                 freshdeck[x] = bdeck.getCard(x);
                             }
-                            k=0;
+                            k = 0;
                         }
-
                         dealerholder.remove(dcard1);
                         dealerholder.remove(dcard2);
                         dlrcard1 = new ImageIcon(freshdeck[k].getImage());
@@ -209,6 +210,7 @@ import java.awt.event.ActionListener;
                         dealervalue += freshdeck[k].getValue();
                         dealerholder.add(dcard1);
                         k++;
+
 
                         dlrcard2 = new ImageIcon(freshdeck[k].getImage());
                         dcard2.setIcon(dlrcard2);
@@ -218,7 +220,53 @@ import java.awt.event.ActionListener;
                         dealerholder.revalidate();
                         dealerholder.repaint();
 
+                        if (dealervalue < playervalue && dealervalue < 21) {
 
+                            dlrcard3 = new ImageIcon(freshdeck[k].getImage());
+                            dcard3.setIcon(dlrcard3);
+                            dealervalue += freshdeck[k].getValue();
+                            dealerholder.add(dcard3);
+                            k++;
+                            dealerholder.revalidate();
+                            dealerholder.repaint();
+                        }
+
+                        if (dealervalue < playervalue && dealervalue < 21) {
+
+                            dlrcard4 = new ImageIcon(freshdeck[k].getImage());
+                            dcard4.setIcon(dlrcard4);
+                            dealervalue += freshdeck[k].getValue();
+                            dealerholder.add(dcard4);
+                            k++;
+                            dealerholder.revalidate();
+                            dealerholder.repaint();
+                        }
+
+                        if (dealervalue < playervalue && dealervalue < 21) {
+
+                            dlrcard5 = new ImageIcon(freshdeck[k].getImage());
+                            dcard5.setIcon(dlrcard5);
+                            dealervalue += freshdeck[k].getValue();
+                            dealerholder.add(dcard5);
+                            k++;
+                            d=5;
+                            dealerholder.revalidate();
+                            dealerholder.repaint();
+
+
+                        }
+
+                        if(dealervalue <= 21 && d==5)
+                        {
+                            JOptionPane.showMessageDialog(null," The dealer has performed a 5 card trick!! unlucky mate");
+                            dealerscore++;
+                        }
+
+                        if(dealervalue > 21){
+
+                            JOptionPane.showMessageDialog(null,"The dealer has bust his hand");
+                            playerscore++;
+                        }
                     }
                 }
             });
