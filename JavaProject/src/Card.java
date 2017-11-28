@@ -34,7 +34,7 @@ public class Card {
         this.value = value;
         Suit = suit;
         ValueAsString = valueAsString;
-        setImage(Image);
+        setImage(Image); // 4 arguement constructor for object card
 
     }
     public Card(){
