@@ -4,14 +4,14 @@ import javax.swing.*;
  * Created by mark on 19/11/2017.
  */
 public class Card {
-    private int value;
+    private int value; // The 4 arguments that create a card
     private String Suit;
     private String ValueAsString;
     private ImageIcon Image;
 
-    public int getValue() {return value;}
+    public int getValue() {return value;} // getters and setters fo value
     public void setValue(int value) {this.value = value;}
-    public String getSuit() {return Suit;}
+    public String getSuit() {return Suit;} // getters and setters that were needed
     public void setImage(ImageIcon image) { Image = image;}
 
 
@@ -20,7 +20,7 @@ public class Card {
     public void setValueAsString(String valueAsString) {ValueAsString = valueAsString;}
 
 
-    // For testing purposes, Change Later...
+    // orginal toString method that didnt include an Image attribute
 //    @Override
 //    public String toString() {
 //        return "Card{" +

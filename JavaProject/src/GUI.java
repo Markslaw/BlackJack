@@ -11,15 +11,19 @@ import java.awt.event.ActionListener;
         private JLabel pcard1, pcard2, pcard3, pcard4, pcard5, playersHand, displaydscore;
         private JLabel dcard1, dcard2, dcard3, dcard4, dcard5, DealersHand, displaypscore;
         private JMenuBar Menu;
-        private JMenuItem exit, save, rules, load;
+        private JMenuItem exit, save, rules, load, newgame;
         private JButton hitbutton, staybutton, dealbutton;
         private JPanel playerholder, dealerholder, buttonholder;
         private JFrame frame = new JFrame("Blackjack");
         private ImageIcon backofcard, plycard1, plycard2, plycard3, plycard4, plycard5, dlrcard1, dlrcard2, dlrcard3, dlrcard4, dlrcard5;
-        private int playervalue = 0, dealervalue = 0;
+        private int playervalue = 0;
+        private int dealervalue = 0;
         private Card[] freshdeck = new Card[52];
-        private int k = 0, i = 0, d = 0;
-        private int playerscore = 0, dealerscore = 0;
+        private int k = 0;
+        private int i = 0;
+        private int d = 0;
+        private int playerscore = 0;
+        private int dealerscore = 0;
 
 
         public GUI()
@@ -31,14 +35,16 @@ import java.awt.event.ActionListener;
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setVisible(true); // making it visible
             frame.setLayout(new GridLayout(3, 1)); // setting up a grid layout which allows me to easily place what i need into predefined areas
-            exit = new JMenuItem();   // creating 4 new menuitems
+            exit = new JMenuItem();   // creating 5 new menuitems
             save = new JMenuItem();
             rules = new JMenuItem();
             load = new JMenuItem();
+            newgame = new JMenuItem();
             exit.addActionListener(this);  // adding actionlisteners to them
             save.addActionListener(this);
             rules.addActionListener(this);
             load.addActionListener(this);
+            newgame.addActionListener(this);
             FileMenu = new JMenu(); // Creating two new JMenus
             Saving = new JMenu();
             Menu = new JMenuBar();
@@ -48,13 +54,16 @@ import java.awt.event.ActionListener;
             save.setText("Save");
             load.setText("Load");
             rules.setText("Rules");
+            newgame.setText("New Game");
             Menu.add(FileMenu);
             Menu.add(Saving);
-            Menu.setBackground(Color.cyan);
+            Color menuC = new Color(55,113,11);
+            Menu.setBackground(menuC);
             FileMenu.add(exit);
             FileMenu.add(rules);
             Saving.add(save);
             Saving.add(load);
+            FileMenu.add(newgame);
             Menu.setLayout(new FlowLayout());
             frame.setJMenuBar(Menu);
             buttonholder = new JPanel(new FlowLayout());
@@ -101,9 +110,9 @@ import java.awt.event.ActionListener;
             buttonholder.add(displaydscore);
             buttonholder.add(displaypscore);
             displaydscore.setText("Dealer:" + dealerscore);
-            displaypscore.setText("player:" + playerscore);
-            frame.add(buttonholder);
-            hitbutton.addActionListener(this);
+            displaypscore.setText("Player:" + playerscore);
+            frame.add(buttonholder); // adding 3rd panel to JFrame
+            hitbutton.addActionListener(this); // adding action listeners to my 3 buttons
             dealbutton.addActionListener(this);
             staybutton.addActionListener(this);
 
@@ -119,13 +128,13 @@ import java.awt.event.ActionListener;
 
         }
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == exit)
+            if (e.getSource() == exit) // exiting game once that file option has been selected
             {
                 System.exit(0); // setting file i
 
             }
 
-            if(e.getSource() == rules)
+            if(e.getSource() == rules)// displaying rules of game once that file option has been selected
             {
                 JOptionPane.showMessageDialog(null,"Blackjack is pretty simple. The basic premise of the game is that you want to have a hand value that" +
                         " is closer to 21 than that of the dealer,\n without going over 21. Other players at the table are of no concern. Your hand competes only against the hand" +
@@ -138,6 +147,18 @@ import java.awt.event.ActionListener;
             if (e.getSource() == save){
 
                 JOptionPane.showMessageDialog(null,"Placeholder");
+            }
+
+            if (e.getSource() == newgame){
+                int result = JOptionPane.showConfirmDialog(null, "Are you sure youd like to start a new game all progress will be lost");
+                if (result == JOptionPane.YES_OPTION){
+                    playerscore = 0;
+                    dealerscore = 0;
+                    displaydscore.setText("Dealer:" + dealerscore); // displaying an updated score for dealer
+                    displaypscore.setText("Player:" + playerscore); // displaying an udated score for player
+                }
+
+
             }
 
             if (e.getSource() == hitbutton) {
@@ -220,7 +241,7 @@ import java.awt.event.ActionListener;
                     i = 0;  // resetting i so that the hit button will now start its process from start again
                     playervalue = 0; //playervalue reset any new hand will now start with a value of zero
                     dealervalue = 0; //dealer value being reset
-                    playerholder.remove(pcard1); //Removing all 5 player cards from screen
+                    playerholder.remove(pcard1); //Removing all 5 player cards from screen or at least as many that are tere
                     playerholder.remove(pcard2);
                     playerholder.remove(pcard3);
                     playerholder.remove(pcard4);
@@ -245,15 +266,17 @@ import java.awt.event.ActionListener;
                     dealerholder.revalidate();
                     dealerholder.repaint(); // updating dealers hand
 
-                    Deck bdeck = new Deck();     // reshuffling deck for two reasons (a) its the norm (b)stops player from being able judge what cards are left
+                    Deck bdeck = new Deck();     // reshuffling deck for two reasons (a) its the norm (b)stops player from being able judge what cards are left based o whats been put down
                     bdeck.shuffle();
                     for (int x = 0; x < freshdeck.length; x++) {
                         freshdeck[x] = bdeck.getCard(x);
                     }
 
 
-                    displaydscore.setText("dealer:" + dealerscore); // displaying an updated score for dealer
-                    displaypscore.setText("player:" + playerscore); // displaying an updated score for player
+                    displaydscore.setText("Dealer:" + dealerscore); // displaying an updated score for dealer
+                    displaypscore.setText("Player:" + playerscore); // displaying an updated score for player
+                    //sidenote not updating score till deal button is pressed was a deliberate design decision i could have easily added this code to update score immediately after
+                    // stay was hit i felt  it more aesthetically pleasing to do it this way
 
 
                 }
@@ -351,76 +374,31 @@ import java.awt.event.ActionListener;
 
 
 
-
-
-
-
-
-
-
-
-
-//            public void actionPerformed(ActionEvent e) {
+//       public void save(){
 //
-//            if (e.getSource() == hitbutton){
-//
-//                if(i == 0){
-//                    plycard1 = new ImageIcon(shuffled[k].getImage());
-//                    pcard1.setIcon(plycard1);
-//                    playervalue += shuffled[k].getValue();
-//                    k++;
-//                    playerholder.add(pcard1);
-//
-//                }
-//
-//                if(i==1){
-//                    plycard2 = new ImageIcon(shuffled[k].getImage());
-//                    pcard2.setIcon(plycard2);
-//                    playervalue += shuffled[k].getValue();
-//                    playerholder.add(pcard2);
-//                    playerholder.revalidate();
-//                    playerholder.repaint();
-//                    k++;
-//                }
-//
-//                if(i==2){
-//                    plycard3 = new ImageIcon(shuffled[k].getImage());
-//                    pcard3.setIcon(plycard3);
-//                    playervalue += shuffled[k].getValue();
-//                    playerholder.add(pcard3);
-//                    playerholder.revalidate();
-//                    playerholder.repaint();
-//                    k++;
-//                }
-//
-//                if(i==3){
-//                    plycard4 = new ImageIcon(shuffled[k].getImage());
-//                    pcard4.setIcon(plycard4);
-//                    playervalue += shuffled[k].getValue();
-//                    playerholder.add(pcard4);
-//                    playerholder.revalidate();
-//                    playerholder.repaint();
-//                    k++;
-//                }
-//
-//                if(i==4){
-//                    plycard5 = new ImageIcon(shuffled[k].getImage());
-//                    pcard5.setIcon(plycard5);
-//                    playervalue += shuffled[k].getValue();
-//                    playerholder.add(pcard5);
-//                    playerholder.revalidate();
-//                    playerholder.repaint();
-//                    k++;
-//
-//                }
-//                if(i>4){
-//                    JOptionPane.showMessageDialog(null,"max no of cards");
-//                }
-//            }
-//
-//
+//            ObjectOutputStream os;
+//            os = new ObjectOutputStream(new FileOutputStream ("score.dat"));
+//            os.writeObject(users);
+//            os.close();
 //
 //        }
+//
+//        public void load(){
+//            ObjectInputStream is;
+//            is = new ObjectInputStream(new FileInputStream ("score.dat"));
+//            score  = (ArrayList<User>) is.readObject();
+//            is.close();
+//        }
+
+
+
+
+
+
+
+
+
+
 
 
 
