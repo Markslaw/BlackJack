@@ -39,7 +39,7 @@ import java.awt.event.ActionListener;
             save.addActionListener(this);
             rules.addActionListener(this);
             load.addActionListener(this);
-            FileMenu = new JMenu();
+            FileMenu = new JMenu(); // Creating two new JMenus
             Saving = new JMenu();
             Menu = new JMenuBar();
             FileMenu.setText("Options");
@@ -74,7 +74,7 @@ import java.awt.event.ActionListener;
             DealersHand = new JLabel();
             displaypscore = new JLabel();
             displaydscore = new JLabel();
-            backofcard = new ImageIcon("Images//backofcard.png");
+            backofcard = new ImageIcon("src//Images//backofcard.png");
             pcard1.setIcon(backofcard);
             pcard2.setIcon(backofcard);
             dcard1.setIcon(backofcard);
@@ -121,7 +121,7 @@ import java.awt.event.ActionListener;
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == exit)
             {
-                System.exit(0);
+                System.exit(0); // setting file i
 
             }
 
@@ -159,7 +159,7 @@ import java.awt.event.ActionListener;
                     playerholder.repaint();
                     k++; // repeating process for as many times as hit button is pressed
                     if (playervalue == 21) {
-                        JOptionPane.showMessageDialog(null, "Blackjack baby");// adding a winning condition if a palyer gets 21 immediatly its called blackjack
+                        JOptionPane.showMessageDialog(null, "Blackjack baby");// adding a winning condition if a player gets 21 immediatly its called blackjack
                         playerscore++;
                     }
                 }
@@ -330,7 +330,7 @@ import java.awt.event.ActionListener;
                     dealerscore++; // adding point to dealers score
                 }
 
-                if (dealervalue == playervalue) { // adding a tie condition both dealer and playre have same value neither gets a point
+                if (dealervalue == playervalue) { // adding a tie condition both dealer and player have same value neither gets a point
                     JOptionPane.showMessageDialog(null, "The game has ended with a draw");
                 }
             }

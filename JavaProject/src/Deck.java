@@ -67,7 +67,7 @@ public class Deck {
                 // deck[i].setSuit("Hearts");
                 // deck[i].setValue(Values[y]);
                 // deck[i].setValueAsString(ValuesAsSring[y]);
-                deck[i] = new Card(Values[y],"Diamonds",ValuesAsSring[y],new ImageIcon("Images//card"+(i+1)+".png"));
+                deck[i] = new Card(Values[y],"Diamonds",ValuesAsSring[y],new ImageIcon("src//Images//card"+(i+1)+".png"));
                 /*ImageIcon icon4 = new ImageIcon("I:\\Software Development Year 2 Semester 1\\OOP2_2017\\images\\loser.png");
                 JOptionPane.showMessageDialog(null,"Unlucky you missed too many shots, Better luck next time!","BasketBall Game", JOptionPane.PLAIN_MESSAGE,icon4);*/
             }
@@ -75,20 +75,20 @@ public class Deck {
                 // deck[i].setSuit("Diamonds");
                 // deck[i].setValue(Values[y]);
                 // deck[i].setValueAsString(ValuesAsSring[y]);
-                deck[i] = new Card(Values[y],"Hearts",ValuesAsSring[y],new ImageIcon("Images//card"+(i+1)+".png"));
+                deck[i] = new Card(Values[y],"Hearts",ValuesAsSring[y],new ImageIcon("src//Images//card"+(i+1)+".png"));
 
             }
             if (SuitCounter >= 26 && SuitCounter < 39) {
                 // deck[i].setSuit("Clubs");
                 // deck[i].setValue(Values[y]);
                 // deck[i].setValueAsString(ValuesAsSring[y]);
-                deck[i] = new Card(Values[y],"Clubs",ValuesAsSring[y],new ImageIcon("Images//card"+(i+1)+".png"));
+                deck[i] = new Card(Values[y],"Clubs",ValuesAsSring[y],new ImageIcon("src//Images//card"+(i+1)+".png"));
             }
             if (SuitCounter >= 39 && SuitCounter < 52) {
                 //  deck[i].setSuit("Spades");
                 //  deck[i].setValue(Values[y]);
                 //  deck[i].setValueAsString(ValuesAsSring[y]);
-                deck[i] = new Card(Values[y],"Clubs",ValuesAsSring[y],new ImageIcon("Images//card"+(i+1)+".png"));
+                deck[i] = new Card(Values[y],"Clubs",ValuesAsSring[y],new ImageIcon("src//Images//card"+(i+1)+".png"));
 
             }
             SuitCounter++;
