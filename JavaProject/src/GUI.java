@@ -290,6 +290,22 @@ public class GUI extends JFrame implements ActionListener {
                     //sidenote not updating score till deal button is pressed was a deliberate design decision i could have easily added this code to update score immediately after
                     // stay was hit i felt  it more aesthetically pleasing to do it this way
 
+                    if(playerscore ==  10) {
+                        JOptionPane.showMessageDialog(null,"player wins Congrats");
+                        playerscore = 0;
+                        dealerscore = 0;
+                        displaydscore.setText("Dealer:" + dealerscore);
+                        displaypscore.setText("Player:" + playerscore);
+
+                    }
+
+                    if(dealerscore == 10 ){
+                        JOptionPane.showMessageDialog(null, "dealer wins unlucky");
+                        dealerscore = 0;
+                        playerscore = 0;
+                        displaydscore.setText("Dealer:" + dealerscore);
+                        displaypscore.setText("Player:" + playerscore);
+                    }
 
                 }
 
@@ -354,7 +370,7 @@ public class GUI extends JFrame implements ActionListener {
                     dealerscore++; // adding to dealers score
                 }
 
-                if (dealervalue > 21) { // adding dealer losing condition he has scored more than 21 automatic lose
+                if (dealervalue > 21 && d!= 5 ) { // adding dealer losing condition he has scored more than 21 automatic lose
 
                     JOptionPane.showMessageDialog(null, "The dealer has bust his hand");
                     playerscore++; // adding a point to player

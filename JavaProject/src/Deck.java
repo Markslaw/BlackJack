@@ -3,16 +3,14 @@ import javax.swing.*;
 import java.util.Random;
 
 
-/** declaring that object deck consists of 52 object cards using a fixed area area as deck size is fixed**/
+
 public class Deck {
+    /** declaring that object deck consists of 52 object cards using a fixed area area as deck size is fixed**/
     private static Card[] deck = new Card[52]; // declaring that object deck consists of 52 object cards using a fixed area area as deck size is fixed
 
-    /** declaring object deck consits of 52 card objects using a fixed array
-     *
-     * @return
-     */
+    /** getter for deck **/
     public Card[] getDeck() {return deck;} // getters and setters for deck
-
+    /** setter for deck **/
     public void setDeck(Card[] deck) {this.deck = deck;}
 
 
@@ -23,7 +21,7 @@ public class Deck {
     //}
 
 
-
+    /** shuffle method that randomly switches the positions of the card objects **/
     // Learned how to shuffle an array on stack overflow//
     public void shuffle() {
         int length = deck.length; //integer length is equal to deck length
@@ -33,14 +31,14 @@ public class Deck {
             swapCards(i, swap);
         }
     }
-
+    /** creating a method to swap the cards that is called in the shuffle method **/
     public void swapCards(int i, int swap){// creating a method to swapcards which can be called in shuffle
         Card temp = deck[i];
         deck[i] = deck[swap];
         deck[swap] = temp;
     }
 
-
+ /** wrote a display method to display my deck as a sting on a Jtext Area **/
     public void display() {
         JTextArea Roster = new JTextArea(); // method that allowedd me to display all the card object that had been feed ino deck creating a Jtextarea
         for (int i = 0; i <deck.length; i++)
@@ -49,7 +47,7 @@ public class Deck {
         }
         JOptionPane.showMessageDialog(null, Roster); // outputing Roster
     }
-
+    /** used a method that allowed me to extract a card from the deck **/
     public static Card getCard(int CardPosition){
 
         return deck[CardPosition]; // this method allowed me to access any card in the deck instrumental during early testing stages
@@ -58,7 +56,7 @@ public class Deck {
 
 
 
-
+   /** Creating a deck object that consists of 52 card objects which have 4 arguements**/
     public Deck() {
 
         int[] Values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11}; // using an int array which reprsent the value of the caards
