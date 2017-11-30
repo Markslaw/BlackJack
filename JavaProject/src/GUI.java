@@ -83,35 +83,34 @@ public class GUI extends JFrame implements ActionListener {
             dcard5 = new JLabel();
             playersHand = new JLabel();// creating a label for aplayers hand and dealers
             DealersHand = new JLabel();
-            displaypscore = new JLabel();//dwed
+            displaypscore = new JLabel();// 2 labels to display player and dealers score
             displaydscore = new JLabel();
-            backofcard = new ImageIcon("src//Images//backofcard.png");
-            pcard1.setIcon(backofcard);
+            backofcard = new ImageIcon("src//Images//backofcard.png"); // making a new image that displays the back of a card
+            pcard1.setIcon(backofcard); // setting first 2 cards of dealer and first two cards  of player to display the back of card images
             pcard2.setIcon(backofcard);
             dcard1.setIcon(backofcard);
             dcard2.setIcon(backofcard);
-            hitbutton = new JButton("Hit");
+            hitbutton = new JButton("Hit"); // adding 3 Jbuttons and setting their text
             staybutton = new JButton("Stay");
             dealbutton = new JButton("Deal");
-            hitbutton.setSize(100, 100);
-            buttonholder.add(dealbutton);
+            buttonholder.add(dealbutton); //adding dealbutton to buttonholder jpanel
             playerholder.add(playersHand);
-            playerholder.add(pcard1);
+            playerholder.add(pcard1);//adding cards to players Jpanel
             playerholder.add(pcard2);
-            Color poker = new Color(55,156,11);
-            playerholder.setBackground(poker);
+            Color poker = new Color(55,156,11); // creating a color for my jPanels
+            playerholder.setBackground(poker); //setting my 3 Jpanels to my custom colour
             dealerholder.setBackground(poker);
             buttonholder.setBackground(poker);
-            frame.add(playerholder);
+            frame.add(playerholder); // adding playerholder jpanel to frame
             dealerholder.add(DealersHand);
-            dealerholder.add(dcard1);
+            dealerholder.add(dcard1); // adding card images to dealerholder Jpanel
             dealerholder.add(dcard2);
-            frame.add(dealerholder);
-            buttonholder.add(hitbutton);
+            frame.add(dealerholder);// adding dealerholder jpanel to frame
+            buttonholder.add(hitbutton); //adding two Jbuttons to buttonholder JPanel
             buttonholder.add(staybutton);
-            buttonholder.add(displaydscore);
+            buttonholder.add(displaydscore); //adding 2 Jlabels to button holder JPanel
             buttonholder.add(displaypscore);
-            displaydscore.setText("Dealer:" + dealerscore);
+            displaydscore.setText("Dealer:" + dealerscore);//Setting the text of my 2 Jpanels
             displaypscore.setText("Player:" + playerscore);
             frame.add(buttonholder); // adding 3rd panel to JFrame
             hitbutton.addActionListener(this); // adding action listeners to my 3 buttons
