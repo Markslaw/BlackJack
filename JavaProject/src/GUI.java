@@ -81,9 +81,9 @@ public class GUI extends JFrame implements ActionListener {
             dcard3 = new JLabel();
             dcard4 = new JLabel();
             dcard5 = new JLabel();
-            playersHand = new JLabel();// 
+            playersHand = new JLabel();// creating a label for aplayers hand and dealers
             DealersHand = new JLabel();
-            displaypscore = new JLabel();
+            displaypscore = new JLabel();//dwed
             displaydscore = new JLabel();
             backofcard = new ImageIcon("src//Images//backofcard.png");
             pcard1.setIcon(backofcard);
