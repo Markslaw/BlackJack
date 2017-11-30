@@ -49,29 +49,29 @@ public class GUI extends JFrame implements ActionListener {
             newgame.addActionListener(this);
             FileMenu = new JMenu(); // Creating two new JMenus
             Saving = new JMenu();
-            Menu = new JMenuBar();
-            FileMenu.setText("Options");
+            Menu = new JMenuBar(); //creating new Menubar
+            FileMenu.setText("Options"); //setting text for my file menu items
             Saving.setText("Saving");
             exit.setText("Exit");
             save.setText("Save");
             load.setText("Load");
             rules.setText("Rules");
             newgame.setText("New Game");
-            Menu.add(FileMenu);
+            Menu.add(FileMenu);// adding 2 menus to menubar
             Menu.add(Saving);
-            Color menuC = new Color(55,113,11);
-            Menu.setBackground(menuC);
-            FileMenu.add(exit);
+            Color menuC = new Color(55,113,11); //creating new color for my menubar
+            Menu.setBackground(menuC);// setting menubars color
+            FileMenu.add(exit);// adding Menu items to menus
             FileMenu.add(rules);
             Saving.add(save);
             Saving.add(load);
             FileMenu.add(newgame);
-            Menu.setLayout(new FlowLayout());
+            Menu.setLayout(new FlowLayout());// setting my menubar as flowlayout
             frame.setJMenuBar(Menu);
-            buttonholder = new JPanel(new FlowLayout());
+            buttonholder = new JPanel(new FlowLayout()); //setting my 3 panels
             dealerholder = new JPanel(new FlowLayout());
             playerholder = new JPanel(new FlowLayout());
-            pcard1 = new JLabel();
+            pcard1 = new JLabel(); //setting labels to add my cards to max 5 cards per person
             pcard2 = new JLabel();
             pcard3 = new JLabel();
             pcard4 = new JLabel();
@@ -81,7 +81,7 @@ public class GUI extends JFrame implements ActionListener {
             dcard3 = new JLabel();
             dcard4 = new JLabel();
             dcard5 = new JLabel();
-            playersHand = new JLabel();
+            playersHand = new JLabel();// 
             DealersHand = new JLabel();
             displaypscore = new JLabel();
             displaydscore = new JLabel();

@@ -2,9 +2,8 @@
 import javax.swing.*;
 import java.util.Random;
 
-/**
- * Created by mark on 19/11/2017.
- */
+
+/** declaring that object deck consists of 52 object cards using a fixed area area as deck size is fixed**/
 public class Deck {
     private static Card[] deck = new Card[52]; // declaring that object deck consists of 52 object cards using a fixed area area as deck size is fixed
 
