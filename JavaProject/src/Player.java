@@ -6,6 +6,9 @@ public class Player {
     private ArrayList<Card> Hand = new ArrayList<Card>(); //arraylist that stores an increasing and decrasingnumber of card objects
     private int score;  // players score
 
+    /**
+     * Accessor for the score attribute
+     */
     public int getScore() { return score; } //get score set score
 
     public void setScore(int score) { this.score = score; }

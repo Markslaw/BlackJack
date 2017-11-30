@@ -3,8 +3,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.ArrayList;
 
-    public class GUI extends JFrame implements ActionListener {
+public class GUI extends JFrame implements ActionListener {
 
 
         private JMenu FileMenu, Saving;
@@ -115,6 +117,10 @@ import java.awt.event.ActionListener;
             hitbutton.addActionListener(this); // adding action listeners to my 3 buttons
             dealbutton.addActionListener(this);
             staybutton.addActionListener(this);
+          //  ArrayList<Card> PlayerHand = new ArrayList<Card>();
+          //  ArrayList<Card> DealerHand = new ArrayList<Card>();
+         //   Player user = new Player(PlayerHand); // created a new user for dealer and player
+         //   Player dealer = new Player(DealerHand);
 
             Deck bDeck = new Deck();   // creating a new deck object
             bDeck.shuffle();      // shuffling said deck
@@ -146,7 +152,13 @@ import java.awt.event.ActionListener;
 
             if (e.getSource() == save){
 
-                JOptionPane.showMessageDialog(null,"Placeholder");
+                try {
+                    save();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
+                JOptionPane.showMessageDialog(null, "Your file has been  successfully saved");
             }
 
             if (e.getSource() == newgame){
@@ -370,25 +382,36 @@ import java.awt.event.ActionListener;
 
             }
 
-        }
+
+
+    public void save() throws IOException{ //saves an integer value of player score in afile called score.dat
+
+        ObjectOutputStream os;
+        os = new ObjectOutputStream(new FileOutputStream("score.dat"));
+        os.writeObject(playerscore);
+        os.close();
+
+    }
+
+
+//    public void load() throws IOException{
+//        ObjectInputStream is;
+//        is = new ObjectInputStream(new FileInputStream("score1.dat"));
+//        playerscore  =  is.();
+//        is.close();
+//    } // attempted to load playerscore
 
 
 
-//       public void save(){
-//
-//            ObjectOutputStream os;
-//            os = new ObjectOutputStream(new FileOutputStream ("score.dat"));
-//            os.writeObject(users);
-//            os.close();
-//
-//        }
-//
-//        public void load(){
-//            ObjectInputStream is;
-//            is = new ObjectInputStream(new FileInputStream ("score.dat"));
-//            score  = (ArrayList<User>) is.readObject();
-//            is.close();
-//        }
+
+
+}
+
+
+
+
+
+
 
 
 

@@ -8,6 +8,10 @@ import java.util.Random;
 public class Deck {
     private static Card[] deck = new Card[52]; // declaring that object deck consists of 52 object cards using a fixed area area as deck size is fixed
 
+    /** declaring object deck consits of 52 card objects using a fixed array
+     *
+     * @return
+     */
     public Card[] getDeck() {return deck;} // getters and setters for deck
 
     public void setDeck(Card[] deck) {this.deck = deck;}
@@ -37,6 +41,7 @@ public class Deck {
         deck[swap] = temp;
     }
 
+
     public void display() {
         JTextArea Roster = new JTextArea(); // method that allowedd me to display all the card object that had been feed ino deck creating a Jtextarea
         for (int i = 0; i <deck.length; i++)
@@ -55,7 +60,8 @@ public class Deck {
 
 
 
-    public Deck() { //creatin of Deck
+    public Deck() {
+
         int[] Values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11}; // using an int array which reprsent the value of the caards
         String[] ValuesAsSring = {"two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace"};// creating a string area  of the values same way they would be seen on a card
         int y = 0; // using y as a counter to allow me to alter the deck at key stages
